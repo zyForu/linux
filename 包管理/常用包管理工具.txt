@@ -1,0 +1,54 @@
+1.dpkg
+1.1由来：
+	最初的软件安装都只能通过源码下载、编译安装，随着debian诞生，出现了dpkg(debian packager)
+	red hat系列受启发开发了类似的rpm
+1.2命令：
+	dpkg -l <package_name> 列出(指定)已经安装的软件及软件包的状态
+		输出行的第一列表示状态：期望状态|当前状态|错误
+		期望状态
+			u：即 unknown，软件包未安装且用户未请求安装
+			i：即 install，用户请求安装该软件包
+			r：即 remove，用户请求卸载该软件包
+			p：即 purge，用户请求卸载该软件包并清理配置文件
+			h：即 hold，用户请求保持续当前软件包版本
+		当前状态：
+			n：即 not-installed，软件包未安装
+			i：即 installed，软件包已安装并完成配置
+			c：即 config-files，软件包已经被卸载，但是其配置文件未清理
+			u：即 unpacked，软件包已经被解压缩，但还未配置
+			f：即 half-configured，配置软件包时出现错误
+			w：即 triggers-awaited，触发器等待
+			t：即 triggers-pending，触发器未决
+	dpkg -i package_name : 安装软件包
+	dpkg -r package_name : 卸载已安装软件包
+	dpkg -c package_name : 查看deb包中内容
+	dpkg -s package_name : 查看指定软件包的详细信息
+	dpkg --status package_name 
+	dpkg -L package_name : 查看软件包安装位置
+	dpkg --list-files package_name
+	dpkg --version : dpkg版本信息
+	dpkg -S file_name : 模糊查询包含指定文件的所有安装包
+
+2.rpm
+2.1简介：
+	red-hat package manager 尽管打上了redhat的标志，但是设计理念是开放式的，很多linux发行版本都有采用
+
+3.apt
+3.1由来：
+	dpkg与rpm大大减少了安装软件的工作量，但是无法解决依赖性问题
+	advanced package tool可以自动检测软件依赖问题，下载和安装所有文件
+3.2命令：
+	apt-get: 用于执行
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
