@@ -38,7 +38,30 @@
 	dpkg与rpm大大减少了安装软件的工作量，但是无法解决依赖性问题
 	advanced package tool可以自动检测软件依赖问题，下载和安装所有文件
 3.2命令：
-	apt-get: 用于执行
+	apt-get: 用于执行和软件包安装相关的操作
+	apt-cache: 用于查找软件包的相关信息
+	apt可以看作apt-get和apt-cache的子集，拥有更精简的命令选项和更有效的参数组织方式
+	apt语法: apt [options] [command] [package...]
+		options:可选，-h: 帮助; -y: 提示均选'yes'; -q: 不显示安装的过程
+	apt常用命令：
+		apt update: 从/etc/apt/sources.list中获取所有软件源站点
+					访问站点的列表文件，如有新的包信息下载到/var/lib/apt/lists/中
+		apt upgrade: 更新所有已安装的软件包
+		apt install <package_name>: 根据本地软件包列表信息，从指定源下载软件包到/var/cache/apt/archives/,并安装该包
+		apt list --upgradeable: 列出可更新的软件包
+		apt list --installed: 列出已安装的软件包
+		apt list --all-versions: 列出已安装的包的版本信息
+		apt show <package_name> 显示软件包具体信息
+		apt remove <package_name>: 删除软件包，但保留配置信息
+		apt autoremove: 清理不再使用的依赖和库文件
+		apt purge <package_name>: 移除软件包及配置文件
+		apt search <keyword>: 查找软件包
+		一些apt-get命令:
+			apt-get clean: 清理/var/cache/apt/archives/
+			apt-get autoclean: 保留最新版本软件包，将过时软件包删除
+		
+		
+
 
 
 	
